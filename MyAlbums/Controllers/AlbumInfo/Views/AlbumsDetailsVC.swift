@@ -7,12 +7,11 @@
 
 import UIKit
 import RxCocoa
-
+import RxSwift
 class AlbumsDetailsVC: UIViewController {
     @IBOutlet weak var albumName: UILabel!
-    @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var searchBar:UISearchBar!
     @IBOutlet weak var albumsImages: UICollectionView!
-    @IBOutlet weak var searchContainerStack: UIStackView!
     var viewModel:albumsDetailsViewModelType
     var albumTitle:String?
     init(viewModel:albumsDetailsViewModelType){
@@ -29,17 +28,25 @@ class AlbumsDetailsVC: UIViewController {
         handleUI()
         bindCollection()
         viewModel.loadAlbumsInfo()
+        bindSearch()
     }
     func handleUI(){
-        searchContainerStack.layer.cornerRadius = 10
-        searchContainerStack.layer.masksToBounds = true
+        
         albumName.text = albumTitle ?? ""
     }
     func bindCollection(){
         self.albumsImages.register(UINib(nibName: "AlbumPhotoCell", bundle: nil), forCellWithReuseIdentifier: "AlbumPhotoCell")
-        viewModel.albumsInfo.bind(to: albumsImages.rx.items(cellIdentifier: "AlbumPhotoCell", cellType: AlbumPhotoCell.self)){index , item , cell in
+        viewModel.filtersAlbumsInfo.bind(to: albumsImages.rx.items(cellIdentifier: "AlbumPhotoCell", cellType: AlbumPhotoCell.self)){index , item , cell in
             cell.imgURL  = URL(string: item.thumbnailURL ?? "")
-            
         }
+    }
+    func bindSearch(){
+        searchBar.rx.text
+            .orEmpty
+            .debounce(.milliseconds(1000), scheduler: MainScheduler.instance)
+            .distinctUntilChanged()
+            .bind{[unowned self] query in
+                self.viewModel.searchFunction(query: query)
+            }
     }
 }

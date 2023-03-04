@@ -7,19 +7,34 @@
 
 import Foundation
 import RxSwift
-
+import RxRelay
 protocol albumsDetailsViewModelType{
-    var albumsInfo:PublishSubject<AlbumsDetailsResponse> {get}
+    var albumsInfo:BehaviorRelay<AlbumsDetailsResponse> {set get}
+    var filtersAlbumsInfo:PublishSubject<AlbumsDetailsResponse> {set get}
     func loadAlbumsInfo()
+    func searchFunction(query:String)
 }
 class albumsDetailsViewModel:albumsDetailsViewModelType{
     let disposeBag = DisposeBag()
-    var albumsInfo:PublishSubject<AlbumsDetailsResponse> = PublishSubject<AlbumsDetailsResponse>()
+    var albumsInfo:BehaviorRelay<[AlbumDetailsModel]> = BehaviorRelay<[AlbumDetailsModel]>(value: [])
+    var filtersAlbumsInfo: PublishSubject<[AlbumDetailsModel]> = PublishSubject<[AlbumDetailsModel]>()
     var id:Int
     init(id:Int){
         self.id = id
     }
     func loadAlbumsInfo(){
-        fetchData(url: URLS.photos, parameter: ["albumId":id]).subscribe(albumsInfo).disposed(by: disposeBag)
+        print(id)
+        fetchData(url: URLS.photos, parameter: ["albumId":id]).bind(to: albumsInfo).disposed(by: disposeBag)
+        albumsInfo.bind(to: filtersAlbumsInfo).disposed(by: disposeBag)
+    }
+    
+    func searchFunction(query:String){
+        if query.isEmpty{
+            filtersAlbumsInfo.onNext(albumsInfo.value)
+            return
+        }
+        filtersAlbumsInfo.onNext(albumsInfo.value.filter{
+            $0.title.contains(query)
+        })
     }
 }
