@@ -18,7 +18,7 @@ func fetchData<T :Codable>(url:String ,parameter:[String:Any]? = nil) -> Observa
             switch response.result{
             case .success(let data):
                 do {
-                    print(response.data)
+                    print(data)
                     if let data = response.data{
                         let jobsData = try JSONDecoder().decode(T.self, from: data)
                         observer.onNext(jobsData)

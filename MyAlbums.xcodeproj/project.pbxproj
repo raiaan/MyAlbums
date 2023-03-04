@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D6AAE0929B366BD001FFEFF /* ViewModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6AAE0829B366BD001FFEFF /* ViewModels.swift */; };
+		4D6AAE0F29B36B3D001FFEFF /* AlbumPhotoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6AAE0D29B36B3D001FFEFF /* AlbumPhotoCell.swift */; };
+		4D6AAE1029B36B3D001FFEFF /* AlbumPhotoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4D6AAE0E29B36B3D001FFEFF /* AlbumPhotoCell.xib */; };
+		4D6AAE1329B37C96001FFEFF /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 4D6AAE1229B37C96001FFEFF /* SDWebImage */; };
 		4D8019E229B1E2ED00D07894 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8019E129B1E2ED00D07894 /* AppDelegate.swift */; };
 		4D8019E429B1E2ED00D07894 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D8019E329B1E2ED00D07894 /* SceneDelegate.swift */; };
 		4D8019EB29B1E2F000D07894 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D8019EA29B1E2F000D07894 /* Assets.xcassets */; };
@@ -49,6 +53,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4D6AAE0829B366BD001FFEFF /* ViewModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModels.swift; sourceTree = "<group>"; };
+		4D6AAE0D29B36B3D001FFEFF /* AlbumPhotoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumPhotoCell.swift; sourceTree = "<group>"; };
+		4D6AAE0E29B36B3D001FFEFF /* AlbumPhotoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumPhotoCell.xib; sourceTree = "<group>"; };
 		4D8019DE29B1E2ED00D07894 /* MyAlbums.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyAlbums.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D8019E129B1E2ED00D07894 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D8019E329B1E2ED00D07894 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D6AAE1329B37C96001FFEFF /* SDWebImage in Frameworks */,
 				4DF823CE29B2106800B160AD /* Alamofire in Frameworks */,
 				4DF823C929B20D0900B160AD /* RxRelay in Frameworks */,
 				4DF823C729B20D0900B160AD /* RxCocoa in Frameworks */,
@@ -102,6 +110,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4D6AAE0729B366AC001FFEFF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4D6AAE0829B366BD001FFEFF /* ViewModels.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		4D6AAE0C29B36B0B001FFEFF /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				4D6AAE0D29B36B3D001FFEFF /* AlbumPhotoCell.swift */,
+				4D6AAE0E29B36B3D001FFEFF /* AlbumPhotoCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		4D8019D529B1E2ED00D07894 = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +235,7 @@
 		4DF823D429B214FC00B160AD /* AlbumInfo */ = {
 			isa = PBXGroup;
 			children = (
+				4D6AAE0729B366AC001FFEFF /* ViewModels */,
 				4DF823D629B2151300B160AD /* Models */,
 				4DF823D529B2150800B160AD /* Views */,
 			);
@@ -219,6 +245,7 @@
 		4DF823D529B2150800B160AD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4D6AAE0C29B36B0B001FFEFF /* Cells */,
 				4DF823DA29B215D000B160AD /* AlbumsDetailsVC.swift */,
 				4DF823DB29B215D000B160AD /* AlbumsDetailsVC.xib */,
 			);
@@ -263,6 +290,7 @@
 				4DF823C829B20D0900B160AD /* RxRelay */,
 				4DF823CA29B20D0900B160AD /* RxSwift */,
 				4DF823CD29B2106800B160AD /* Alamofire */,
+				4D6AAE1229B37C96001FFEFF /* SDWebImage */,
 			);
 			productName = MyAlbums;
 			productReference = 4D8019DE29B1E2ED00D07894 /* MyAlbums.app */;
@@ -339,6 +367,7 @@
 			packageReferences = (
 				4DF823C329B20D0900B160AD /* XCRemoteSwiftPackageReference "RxSwift" */,
 				4DF823CC29B2106800B160AD /* XCRemoteSwiftPackageReference "Alamofire" */,
+				4D6AAE1129B37C96001FFEFF /* XCRemoteSwiftPackageReference "SDWebImage" */,
 			);
 			productRefGroup = 4D8019DF29B1E2ED00D07894 /* Products */;
 			projectDirPath = "";
@@ -357,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4D8019EE29B1E2F100D07894 /* LaunchScreen.storyboard in Resources */,
+				4D6AAE1029B36B3D001FFEFF /* AlbumPhotoCell.xib in Resources */,
 				4D801A1829B1EFEE00D07894 /* UserInfoVC.xib in Resources */,
 				4D8019EB29B1E2F000D07894 /* Assets.xcassets in Resources */,
 				4DF823DD29B215D000B160AD /* AlbumsDetailsVC.xib in Resources */,
@@ -386,11 +416,13 @@
 			files = (
 				4DF823DC29B215D000B160AD /* AlbumsDetailsVC.swift in Sources */,
 				4D8019E229B1E2ED00D07894 /* AppDelegate.swift in Sources */,
+				4D6AAE0F29B36B3D001FFEFF /* AlbumPhotoCell.swift in Sources */,
 				4D8019E429B1E2ED00D07894 /* SceneDelegate.swift in Sources */,
 				4D801A1729B1EFEE00D07894 /* UserInfoVC.swift in Sources */,
 				4D801A1B29B1F38000D07894 /* URLS.swift in Sources */,
 				4DF823D129B210A700B160AD /* UserModel.swift in Sources */,
 				4DF823D329B2114B00B160AD /* AlbumsModel.swift in Sources */,
+				4D6AAE0929B366BD001FFEFF /* ViewModels.swift in Sources */,
 				4DF823DF29B2234300B160AD /* UserInfoViewModel.swift in Sources */,
 				4DF823D929B2154200B160AD /* albumsDetailsModel.swift in Sources */,
 				4D801A1D29B1F4FA00D07894 /* NetworkCall.swift in Sources */,
@@ -727,6 +759,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		4D6AAE1129B37C96001FFEFF /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		4DF823C329B20D0900B160AD /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift.git";
@@ -746,6 +786,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4D6AAE1229B37C96001FFEFF /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4D6AAE1129B37C96001FFEFF /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
 		4DF823C429B20D0900B160AD /* RxBlocking */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 4DF823C329B20D0900B160AD /* XCRemoteSwiftPackageReference "RxSwift" */;

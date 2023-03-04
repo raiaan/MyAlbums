@@ -59,7 +59,7 @@
                     </subviews>
                 </stackView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="o7V-Mn-AdV">
-                    <rect key="frame" x="16" y="199" width="382" height="663"/>
+                    <rect key="frame" x="8" y="199" width="398" height="663"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                 </tableView>
             </subviews>
@@ -69,11 +69,11 @@
                 <constraint firstItem="eRZ-tU-5k6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="5ra-zW-1WX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="o7V-Mn-AdV" secondAttribute="bottom" id="9tR-1p-Sb5"/>
                 <constraint firstItem="DoO-Fn-YaU" firstAttribute="top" secondItem="eRZ-tU-5k6" secondAttribute="bottom" constant="16" id="HnO-UY-aC3"/>
-                <constraint firstItem="o7V-Mn-AdV" firstAttribute="leading" secondItem="DoO-Fn-YaU" secondAttribute="leading" id="XHx-kr-ms4"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eRZ-tU-5k6" secondAttribute="trailing" constant="16" id="Z3O-wa-DhM"/>
-                <constraint firstItem="o7V-Mn-AdV" firstAttribute="trailing" secondItem="DoO-Fn-YaU" secondAttribute="trailing" id="Zl1-zy-epJ"/>
                 <constraint firstItem="eRZ-tU-5k6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="elW-bM-QUR"/>
                 <constraint firstItem="o7V-Mn-AdV" firstAttribute="top" secondItem="DoO-Fn-YaU" secondAttribute="bottom" constant="10" id="g4K-jJ-VUs"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="o7V-Mn-AdV" secondAttribute="trailing" constant="8" id="gXp-PT-1Gw"/>
+                <constraint firstItem="o7V-Mn-AdV" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="8" id="r4R-Cz-nYO"/>
                 <constraint firstItem="DoO-Fn-YaU" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="wFc-e3-qms"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="DoO-Fn-YaU" secondAttribute="trailing" constant="16" id="yg7-GN-mIH"/>
             </constraints>

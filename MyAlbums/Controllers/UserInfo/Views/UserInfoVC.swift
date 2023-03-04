@@ -45,6 +45,15 @@ class UserInfoVC: UIViewController {
         self.albumsTable.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         viewModel.albums.bind(to: albumsTable.rx.items(cellIdentifier: "Cell", cellType: UITableViewCell.self)){row , element , cell in
             cell.textLabel?.text = element.title
-        }
+        }.disposed(by: disposeBag)
+        Observable.combineLatest(albumsTable.rx.itemSelected, self.viewModel.albums).subscribe{[weak self]index , items in
+            let viewModel = albumsDetailsViewModel(id: items[index.row].id)
+            let vc = AlbumsDetailsVC(viewModel: viewModel)
+            vc.albumTitle = items[index.row].title
+            self?.present(vc, animated: true)
+        }.disposed(by: disposeBag)
+    }
+    override func viewWillDisappear(_ animated: Bool) {
+        
     }
 }

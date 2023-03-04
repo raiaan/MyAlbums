@@ -7,12 +7,12 @@
 
 import Foundation
 struct AlbumDetailsModel: Codable {
-    let albumID, id: Int
-    let title: String
-    let url, thumbnailURL: String
+    let albumId, id: Int?
+    let title: String?
+    let url, thumbnailURL: String?
 
     enum CodingKeys: String, CodingKey {
-        case albumID = "albumId"
+        case albumId = "albumId"
         case id, title, url
         case thumbnailURL = "thumbnailUrl"
     }
