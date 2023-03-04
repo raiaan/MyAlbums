@@ -8,6 +8,7 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import ProgressHUD
 
 class UserInfoVC: UIViewController {
     //MARK: outlets Data
@@ -31,7 +32,9 @@ class UserInfoVC: UIViewController {
         super.viewDidLoad()
         bindUserData()
         bindAlbums()
+        ProgressHUD.showLoader()
         viewModel.loadUserInfo()
+        bindProgress()
     }
     func bindUserData(){
         viewModel.user.subscribe{[weak self]value in
@@ -53,7 +56,10 @@ class UserInfoVC: UIViewController {
             self?.present(vc, animated: true)
         }.disposed(by: disposeBag)
     }
-    override func viewWillDisappear(_ animated: Bool) {
-        
+    
+    func bindProgress(){
+        viewModel.albums.bind{items in
+            !items.isEmpty ? ProgressHUD.dismiss() : nil
+        }.disposed(by: disposeBag)
     }
 }

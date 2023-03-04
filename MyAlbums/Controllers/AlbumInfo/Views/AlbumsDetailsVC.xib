@@ -49,8 +49,8 @@
                             </constraints>
                         </view>
                         <searchBar contentMode="redraw" placeholder="Search in Images" translatesAutoresizingMaskIntoConstraints="NO" id="w8I-c0-Igy">
-                            <rect key="frame" x="0.0" y="30.5" width="414" height="51"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <rect key="frame" x="0.0" y="30" width="414" height="51"/>
+                            <textInputTraits key="textInputTraits" autocorrectionType="no" smartDashesType="no" smartInsertDeleteType="no"/>
                         </searchBar>
                     </subviews>
                 </stackView>

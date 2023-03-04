@@ -8,12 +8,14 @@
 import UIKit
 import RxCocoa
 import RxSwift
+import ProgressHUD
 class AlbumsDetailsVC: UIViewController {
     @IBOutlet weak var albumName: UILabel!
     @IBOutlet weak var searchBar:UISearchBar!
     @IBOutlet weak var albumsImages: UICollectionView!
     var viewModel:albumsDetailsViewModelType
     var albumTitle:String?
+    var disposeBag = DisposeBag()
     init(viewModel:albumsDetailsViewModelType){
         self.viewModel = viewModel
         super.init(nibName: "AlbumsDetailsVC", bundle: nil)
@@ -28,16 +30,21 @@ class AlbumsDetailsVC: UIViewController {
         handleUI()
         bindCollection()
         viewModel.loadAlbumsInfo()
+        ProgressHUD.showLoader()
         bindSearch()
     }
     func handleUI(){
         
         albumName.text = albumTitle ?? ""
+        searchBar.autocapitalizationType = .none
     }
     func bindCollection(){
         self.albumsImages.register(UINib(nibName: "AlbumPhotoCell", bundle: nil), forCellWithReuseIdentifier: "AlbumPhotoCell")
         viewModel.filtersAlbumsInfo.bind(to: albumsImages.rx.items(cellIdentifier: "AlbumPhotoCell", cellType: AlbumPhotoCell.self)){index , item , cell in
             cell.imgURL  = URL(string: item.thumbnailURL ?? "")
+        }.disposed(by: disposeBag)
+        viewModel.albumsInfo.bind{items in
+            !items.isEmpty  ? ProgressHUD.dismiss() : nil
         }
     }
     func bindSearch(){
@@ -47,6 +54,6 @@ class AlbumsDetailsVC: UIViewController {
             .distinctUntilChanged()
             .bind{[unowned self] query in
                 self.viewModel.searchFunction(query: query)
-            }
+            }.disposed(by: disposeBag)
     }
 }
